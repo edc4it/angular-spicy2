@@ -1,31 +1,30 @@
-import {Component, trigger, style, animate, transition, state, OnInit} from "@angular/core";
-
-import {RecipeFilterPipe} from "./recipe-filter.pipe";
+import {Component, OnInit} from "@angular/core";
 import {SearchComponent} from "../search/search.component";
 import {RecipeService} from "../recipe-service/recipe-service";
 import {Recipe} from "../recipe-service/recipe";
+import {Observable} from "rxjs";
 
 @Component({
-    moduleId: module.id,
     selector: "spice-app",
     template: require("./recipes-list.component.html"),
     styles: [require("./recipes-list.component.scss")],
-    directives : [SearchComponent],
-    pipes: [RecipeFilterPipe],
-    providers : [RecipeService]
+    directives: [SearchComponent]
 })
 export class RecipesListComponent implements OnInit {
 
 
-    constructor(private recipeService : RecipeService) {
+    constructor(private recipeService: RecipeService) {
     }
 
 
     ngOnInit() {
-        this.recipeService.getAll().then(r => this.recipes = r);
+        this.search(null);
     }
 
-    recipes  : Array<Recipe> = [];
-    searchValue : string = "";
+    private search(s: string) {
+        this.recipes = this.recipeService.getAll(s);
+    }
+
+    recipes: Observable<[Recipe]>;
 
 }
