@@ -5,7 +5,6 @@ import {Recipe} from "../recipe-service/recipe";
 import {Observable, Subject} from "rxjs";
 
 @Component({
-    selector: "spice-app",
     template: require("./recipes-list.component.html"),
     styles: [require("./recipes-list.component.scss")],
     directives: [SearchComponent]
