@@ -1,0 +1,12 @@
+@mixin markControl($colour) {
+  border-left: 5px solid $colour;
+}
+
+
+.ng-valid[required] {
+  @include markControl(green)
+}
+
+.ng-invalid {
+  @include markControl(red)
+}

@@ -1,6 +1,6 @@
 import {Routes, RouterModule} from "@angular/router";
 import {RecipesListComponent} from "./recipes-list/recipes-list.component";
-import {EditCommentComponent} from "./comments/edit-comment-component";
+import {AddReviewComponent} from "./reviews/add-review-component";
 
 const routes: Routes = [
     {
@@ -8,8 +8,8 @@ const routes: Routes = [
         component: RecipesListComponent
     },
     {
-        path: 'comments/edit',
-        component: EditCommentComponent
+        path: 'review/add',
+        component: AddReviewComponent
     },
     {
         path: '',

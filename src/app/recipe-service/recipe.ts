@@ -2,8 +2,19 @@ export interface Review {
     rate:number;
     name:string;
     email:string;
-    submitted:Date;
+    submitted:any;
     text:string;
+}
+
+export class ReviewImpl implements Review {
+
+    constructor(
+                public name: string,
+                public rate: number,
+                public text: string,
+                public submitted: any,
+                public email?: string) {
+    }
 }
 
 export interface Recipe {
