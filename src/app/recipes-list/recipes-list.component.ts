@@ -7,7 +7,6 @@ import {Observable, Subject} from "rxjs";
 @Component({
     template: require("./recipes-list.component.html"),
     styles: [require("./recipes-list.component.scss")],
-    directives: [SearchComponent]
 })
 export class RecipesListComponent  {
 

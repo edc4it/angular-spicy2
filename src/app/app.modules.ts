@@ -7,11 +7,13 @@ import {RecipeFilterPipe} from "./recipes-list/recipe-filter.pipe";
 import {RecipeService} from "./recipe-service/recipe-service";
 import {routing} from "./app.routing";
 import {AppComponent} from "./app.component";
+import {SearchComponent} from "./search/search.component";
+import {AddReviewComponent} from "./reviews/add-review-component";
 
 @NgModule({
     imports:      [BrowserModule, FormsModule, routing,  HttpModule, ReactiveFormsModule ],
     bootstrap:    [AppComponent],
-    declarations: [RecipesListComponent, AppComponent, RecipeFilterPipe],
+    declarations: [RecipesListComponent, SearchComponent, AppComponent, AddReviewComponent, RecipeFilterPipe],
     providers :   [RecipeService]
 })
 export class AppModule {}
