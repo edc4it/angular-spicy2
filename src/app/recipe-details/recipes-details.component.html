@@ -1,0 +1,33 @@
+<article class="col-md-10 col-md-offset-1 recipe-detail" *ngIf="recipe">
+    <div class="row">
+        <section class="overview">
+            <div class="col-md-6">
+                <img [src]="'images/recipes/'+recipe.image"/>
+            </div>
+            <div class="col-md-6">
+                <div class="recipe-title">{{recipe.title}}</div>
+                <div class="recipe-date">{{recipe.datePublished | date}}</div>
+            </div>
+        </section>
+    </div>
+    <div class="row">
+        <section class="col-md-4">
+            <h1>Ingredients</h1>
+            <!--ul with li's for each ingredient -->
+            <ul>
+                <li *ngFor="let ingredient of recipe.ingredients">{{ingredient}}</li>
+            </ul>
+        </section>
+        <div class="col-md-4 col-md-offset-4">
+            <section class="comments">
+                <h1>Reviews</h1>
+                <!--for each review make an article.comment below-->
+                <article class="comment" *ngFor="let review of recipe.reviews">
+                    <div class="author">{{review.name}}</div>
+                    <div class="rate">{{review.rate}}<i class="fa fa-star-o" aria-hidden="true"></i></div>
+                    <div class="text">{{review.text}}</div>
+                </article>
+            </section>
+        </div>
+    </div>
+</article>

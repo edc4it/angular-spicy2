@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-2 recipes-sidebar">
+            <recipe-search [placeholder]="'search titles'" (searchValueChange) = "searchStream.next($event)"></recipe-search>
+        </div>
+
+        <div class="col-md-10 recipes-list">
+
+            <article class="recipe-thumb"
+                     *ngFor="let recipe of recipes | async;  let isOdd=odd; let isEven=even">
+
+                <a [routerLink]="['/recipe', recipe.id]">
+                <img [class.left]="isOdd" [class.right]="isEven"
+                     [src]="'images/recipes/'+recipe.image"/> </a>
+
+                <div class="recipe-title">{{recipe.title}}</div>
+                <div class="recipe-date">{{recipe.datePublished | date}}</div>
+
+            </article>
+        </div>
+    </div>
+</div>
