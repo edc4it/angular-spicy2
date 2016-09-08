@@ -1,6 +1,6 @@
 import {Routes, RouterModule} from "@angular/router";
 import {RecipesListComponent} from "./recipes-list/recipes-list.component";
-import {AddReviewComponent} from "./reviews/add-review-component";
+import {AddReviewComponent} from "./reviews/add-review.component";
 
 const routes: Routes = [
     {

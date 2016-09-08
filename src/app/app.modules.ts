@@ -8,7 +8,7 @@ import {RecipeService} from "./recipe-service/recipe-service";
 import {routing} from "./app.routing";
 import {AppComponent} from "./app.component";
 import {SearchComponent} from "./search/search.component";
-import {AddReviewComponent} from "./reviews/add-review-component";
+import {AddReviewComponent} from "./reviews/add-review.component";
 
 @NgModule({
     imports:      [BrowserModule, FormsModule, routing,  HttpModule, ReactiveFormsModule ],
