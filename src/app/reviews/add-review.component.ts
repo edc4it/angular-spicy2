@@ -9,8 +9,8 @@ export class AddReviewComponent  {
 
     review  = new ReviewImpl("",5,"",new Date());
 
-    submitReview(){
+    submitReview() {
         console.log("review",this.review)
     }
-    
+
 }

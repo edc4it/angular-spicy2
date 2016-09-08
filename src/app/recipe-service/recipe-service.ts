@@ -15,12 +15,18 @@ export class RecipeService {
 
         const params = new URLSearchParams();
         params.set("sort","datePublished");
-        if (titlePattern) params.set("titlePattern",titlePattern);
+        if (titlePattern && titlePattern.length > 0) params.set("titlePattern",titlePattern);
         return this.http.get("http://localhost:5000/api/recipes", {
             search : params
         }).map((res: Response) => res.json())
-          .catch((error: any) => Observable.throw(error.message));
+          .catch((error: any) => Observable.throw(error));
 
+    }
+
+    get(id : string) : Observable<Recipe> {
+        return this.http.get("http://localhost:5000/api/recipes/"+id)
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error));
     }
 
 

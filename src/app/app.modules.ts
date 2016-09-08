@@ -9,11 +9,13 @@ import {routing} from "./app.routing";
 import {AppComponent} from "./app.component";
 import {SearchComponent} from "./search/search.component";
 import {AddReviewComponent} from "./reviews/add-review.component";
+import {ToasterModule} from "angular2-toaster/angular2-toaster";
+import {RecipeDetailsComponent} from "./recipe-details/recipe-details.component";
 
 @NgModule({
-    imports:      [BrowserModule, FormsModule, routing,  HttpModule, ReactiveFormsModule ],
+    imports:      [BrowserModule, FormsModule, ToasterModule, routing,  HttpModule, ReactiveFormsModule ],
     bootstrap:    [AppComponent],
-    declarations: [RecipesListComponent, SearchComponent, AppComponent, AddReviewComponent, RecipeFilterPipe],
+    declarations: [RecipesListComponent, SearchComponent, AppComponent, AddReviewComponent, RecipeFilterPipe, RecipeDetailsComponent],
     providers :   [RecipeService]
 })
 export class AppModule {}

@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
                 <a class="navbar-brand" href="/">Spicy Angular</a>
             </div>
        </nav>
+       <toaster-container></toaster-container>
        <router-outlet></router-outlet>
     `
 })
