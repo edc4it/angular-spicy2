@@ -1,7 +1,7 @@
 export interface Review {
     rate:number;
     name:string;
-    email:string;
+    email?:string;
     submitted:any;
     text:string;
 }
@@ -24,12 +24,12 @@ export interface Recipe {
     datePublished:any;
     source:string;
     prepTime:string;
-    description:string;
+    description:string | null;
     id:string;
     title:string;
     difficulty:number;
     reviews:Review[];
-    totalTime:string;
+    totalTime?:string;
     recipeYield:string;
     cookTime:string;
 }
