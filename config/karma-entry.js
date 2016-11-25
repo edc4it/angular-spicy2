@@ -13,7 +13,7 @@ require('zone.js/dist/fake-async-test');
 // RxJS
 require('rxjs/Rx');
 const browserTesting = require('@angular/platform-browser-dynamic/testing');
-var testing = require('@angular/core/testing');
+const testing = require('@angular/core/testing');
 
 testing.TestBed.initTestEnvironment(
     browserTesting.BrowserDynamicTestingModule,

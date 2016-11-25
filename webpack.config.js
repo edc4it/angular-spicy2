@@ -1,12 +1,16 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const webpack = require("webpack");
-const path = require("path");
-const ProvidePlugin = require("webpack/lib/ProvidePlugin");
-const autoprefixer = require("autoprefixer");
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-
-
-
-
-
-module.exports = {};
+switch (process.env.NODE_ENV) {
+    /*
+     case 'prod':
+     case 'production':
+     module.exports = require('./config/webpack.prod')({env: 'production'});
+     break;
+     case 'test':
+     case 'testing':
+     module.exports = require('./config/webpack.test')({env: 'test'});
+     break;
+     */
+    case 'dev':
+    case 'development':
+    default:
+        module.exports = require('./config/webpack.dev')({env: 'development'});
+}
