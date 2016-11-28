@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, Input} from "@angular/core";
 import {RecipeService} from "../recipe-service/recipe-service";
 import {Recipe} from "../recipe-service/recipe";
 import {Router, ActivatedRoute} from "@angular/router";
@@ -10,8 +10,10 @@ import {ToasterService} from "angular2-toaster/angular2-toaster";
 })
 export class RecipeDetailsComponent implements OnInit  {
 
-    private recipe : Recipe;
+    @Input() recipe : Recipe;
     private subription;
+
+
 
     constructor(
         private route: ActivatedRoute,
@@ -28,6 +30,7 @@ export class RecipeDetailsComponent implements OnInit  {
             .subscribe(
                 recipe => this.recipe= recipe,
                 e => {
+                    console.error("problem fetching recipe",e)
                     this.toasterService.pop('error', 'Oops', e);
                     this.navToList()
                 }
