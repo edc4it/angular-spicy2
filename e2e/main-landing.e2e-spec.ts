@@ -1,4 +1,5 @@
 import {browser, by, element} from 'protractor';
+import {elementAt} from "rxjs/operator/elementAt";
 
 describe("Simple e2e test", () => {
 
@@ -9,6 +10,12 @@ describe("Simple e2e test", () => {
     it('should have a title', () => {
         const subject = browser.getTitle();
         expect(subject).toEqual('Angular Spice2');
+    });
+
+    it('should allow a user to navigate', () => {
+        element.all(by.css('article')).first().click()
+        const text = element(by.css(".recipe-title")).getText();
+        expect(text).toContain('Onion Dip Recipe');
     });
 
 })

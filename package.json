@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "postinstall": "typings install",
     "start": "webpack-dev-server --inline --progress --env.development",
     "build": "webpack --progress",
     "re-build": "rimraf dist && webpack --progress",
     "test": "karma start",
-    "postinstall": "typings install"
+    "e2e": "npm run protractor",
+    "protractor": "protractor"
   },
   "keywords": [],
   "author": "",
