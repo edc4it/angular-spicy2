@@ -3,10 +3,10 @@
 }
 
 
-.ng-valid[required] {
+input.ng-valid[required] {
   @include markControl(green)
 }
 
-.ng-invalid {
+input.ng-invalid {
   @include markControl(red)
 }
