@@ -7,6 +7,6 @@ input.ng-valid[required] {
   @include markControl(green)
 }
 
-input.ng-invalid {
+input.ng-invalid.ng-touched {
   @include markControl(red)
 }
