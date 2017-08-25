@@ -16,8 +16,7 @@ export class SearchComponent {
     searchControl = new FormControl();
 
     @Output()
-    searchValueChange = new EventEmitter<String>();
-
+    searchValueChange = new EventEmitter<string>();
 
     constructor() {
         this.searchControl.valueChanges

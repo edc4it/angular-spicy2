@@ -4,18 +4,18 @@ import {elementAt} from "rxjs/operator/elementAt";
 describe("Simple e2e test", () => {
 
     beforeEach(() => {
-        browser.get('/');
+        browser.get("/");
     });
 
-    it('should have a title', () => {
+    it("should have a title", () => {
         const subject = browser.getTitle();
-        expect(subject).toEqual('Angular Spice2');
+        expect<any>(subject).toEqual("Angular Spice4");
     });
 
-    it('should allow a user to navigate', () => {
-        element.all(by.css('article')).first().click()
+    it("should allow a user to navigate", () => {
+        element.all(by.css("article")).first().click()
         const text = element(by.css(".recipe-title")).getText();
-        expect(text).toContain('Onion Dip Recipe');
+        expect(text).toContain("Onion Dip Recipe");
     });
 
 })

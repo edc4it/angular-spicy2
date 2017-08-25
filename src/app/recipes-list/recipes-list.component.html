@@ -1,13 +1,13 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
 
-        <div class="col-md-2 recipes-sidebar">
+        <div class="col-lg-2 recipes-sidebar">
             <recipe-search [placeholder]="'search titles'" (searchValueChange) = "searchStream.next($event)"></recipe-search>
         </div>
 
-        <div class="col-md-10 recipes-list">
+        <div class="col-lg-10 recipes-list">
 
-            <article class="recipe-thumb"
+            <article class="recipe-thumb clearfix"
                      *ngFor="let recipe of recipes | async;  let isOdd=odd; let isEven=even">
 
                 <a [routerLink]="['/recipe', recipe.id]">

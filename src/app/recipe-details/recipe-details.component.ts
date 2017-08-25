@@ -1,8 +1,9 @@
-import {Component, OnInit, Input} from "@angular/core";
-import {RecipeService} from "../recipe-service/recipe-service";
-import {Recipe} from "../recipe-service/recipe";
-import {Router, ActivatedRoute} from "@angular/router";
+import {Component, Input, OnInit} from "@angular/core";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ToasterService} from "angular2-toaster/angular2-toaster";
+import {Subscription} from "rxjs/Subscription";
+import {Recipe} from "../recipe-service/recipe";
+import {RecipeService} from "../recipe-service/recipe-service";
 
 @Component({
     template: require("./recipes-details.component.html"),
@@ -10,10 +11,8 @@ import {ToasterService} from "angular2-toaster/angular2-toaster";
 })
 export class RecipeDetailsComponent implements OnInit  {
 
-    @Input() recipe : Recipe;
-    private subription;
-
-
+    @Input() recipe: Recipe;
+    private subscription: Subscription;
 
     constructor(
         private route: ActivatedRoute,
@@ -24,23 +23,22 @@ export class RecipeDetailsComponent implements OnInit  {
 
     ngOnInit(): void {
 
-        this.subription = this.route.params
-            .map(params => params["id"])
-            .switchMap(id => this.recipeService.get(id))
+        this.subscription = this.route.params
+            .map((params) => params.id)
+            .switchMap((id) => this.recipeService.get(id))
             .subscribe(
-                recipe => this.recipe= recipe,
-                e => {
-                    console.error("problem fetching recipe",e)
-                    this.toasterService.pop('error', 'Oops', e);
+                (recipe) => this.recipe = recipe,
+                (e) => {
+                    console.error("problem fetching recipe", e)
+                    this.toasterService.pop("error", "Oops", e);
                     this.navToList()
                 }
             );
     }
 
     ngOnDestroy() {
-        this.subription.unsubscribe();
+        this.subscription.unsubscribe();
     }
-
 
     private navToList() {
         this.router.navigate(["recipe-list"])

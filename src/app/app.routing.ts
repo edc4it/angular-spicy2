@@ -1,25 +1,25 @@
-import {Routes, RouterModule} from "@angular/router";
+import {RouterModule, Routes} from "@angular/router";
+import {RecipeDetailsComponent} from "./recipe-details/recipe-details.component";
 import {RecipesListComponent} from "./recipes-list/recipes-list.component";
 import {AddReviewComponent} from "./reviews/add-review.component";
-import {RecipeDetailsComponent} from "./recipe-details/recipe-details.component";
 
 const routes: Routes = [
     {
-        path: 'recipe-list',
+        path: "recipe-list",
         component: RecipesListComponent
     },
     {
-        path: 'recipe/:id',
+        path: "recipe/:id",
         component: RecipeDetailsComponent
     },
     {
-        path: 'review/add',
+        path: "review/add",
         component: AddReviewComponent
     },
     {
-        path: '',
-        redirectTo: '/recipe-list',
-        pathMatch: 'full'
+        path: "",
+        redirectTo: "/recipe-list",
+        pathMatch: "full"
     }
 ];
 
