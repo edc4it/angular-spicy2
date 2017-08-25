@@ -14,5 +14,4 @@
         "suppressImplicitAnyIndexErrors": true,
     },
     "exclude" : ["node_modules"]
-
 }
