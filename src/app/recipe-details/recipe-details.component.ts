@@ -29,8 +29,8 @@ export class RecipeDetailsComponent implements OnInit  {
             .subscribe(
                 (recipe) => this.recipe = recipe,
                 (e) => {
-                    console.error("problem fetching recipe", e)
-                    this.toasterService.pop("error", "Oops", e);
+                    console.error("problem fetching recipe", e.message);
+                    this.toasterService.pop("error", "Oops", e.message);
                     this.navToList()
                 }
             );
