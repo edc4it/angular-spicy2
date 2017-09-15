@@ -10,11 +10,11 @@ import {RecipeService} from "../recipe-service/recipe-service";
 export class RecipesListComponent  implements OnInit {
     searchStream = new Subject<string>();
 
-    recipes: Observable<[Recipe]>;
-
     constructor(private recipeService: RecipeService ) {
 
     }
+
+    recipes: Observable<Recipe[]>;
 
     ngOnInit(): void {
         this.recipes = this.searchStream.flatMap((s) => {

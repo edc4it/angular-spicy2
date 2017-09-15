@@ -11,13 +11,12 @@ export class RecipeService {
     constructor(private http: HttpClient) {
     }
 
-    getAll(titlePattern: string): Observable<[Recipe]> {
-
+    getAll(titlePattern: string): Observable<Recipe[]> {
         let httpParams = new HttpParams().set("sort", "datePublished");
         if (titlePattern && titlePattern.length > 0) {
             httpParams  = httpParams.set("titlePattern", titlePattern)
         }
-        return this.http.get<[Recipe]>("http://localhost:5000/api/recipes", {
+        return this.http.get<Recipe[]>("http://localhost:5000/api/recipes", {
             params: httpParams
         })
     }
